@@ -1,14 +1,76 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Ionic Blank
+  <ion-toolbar color="primary">
+    <ion-title style="font-family: 'PressStart2P', cursive; color: #8a4182" class="ion-text-center">
+      EasyGas
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
+<!--===================================================-->
+<!--===================================================-->
+
+<ion-content class="font">
+
+  <!--<ion-list>
+      <ion-select [(ngModel)]="itemSelecionado" placeholder="Selecione o Carro">
+        <ion-select-option *ngFor="let car of cars" [value]="car"> {{car.carName}} </ion-select-option>
+      </ion-select>
+    </ion-list>-->
+
+  <div id="selectCar" class="nes-select is-warning ion-padding font" >
+    <ion-select  required id="warning_select"  [(ngModel)]="carSelecionado">
+      <ion-select-option value="" selected ></ion-select-option>
+      <ion-select-option *ngFor="let car of cars" [value]="car" class="font">  {{car.carName}}  </ion-select-option>
+    </ion-select>
   </div>
+
+
+  <div id="cardGas">
+
+    <!--    CARD INPUT GASOLINA-->
+    <ion-card class="cardG">
+      <div class="divImg">
+        <img src="../../assets/gas.png">
+      </div>
+
+      <div class="divInput font">
+        <input [(ngModel)]="precoAtualGasolina" class="nes-input is-success"
+               placeholder="Gasolina" type="number" step="0.01" clearInput="true"/>
+      </div>
+    </ion-card>
+
+    <!--    CARD INPUT ALCOOL-->
+    <ion-card class="cardG font">
+      <div class="divImg">
+        <img src="../../assets/gas.png">
+      </div>
+
+      <div class="divInput font">
+        <input [(ngModel)]="precoAtualAlcool" class="nes-input is-success"
+               placeholder="Alcool" type="number" step="0.01" clearInput="true"/>
+      </div>
+    </ion-card>
+  </div>
+
+
+  <!--BOTOES -->
+  <div class="botoes">
+    <button id="botaoCalcular" type="button" class="nes-btn is-success font" (click)="calcular()">CALCULAR</button>
+
+    <button id="botaoAddCarro" type="button" class="nes-btn is-warning font" [routerLink]="['/add-carro']">Adicionar Carro</button>
+  </div>
+
+
+  <div>
+    <ion-card id="cardMelhorOpt" class="font" *ngIf="opt">
+      <h5>Abasteça com {{melhorOpt}}</h5>
+      <h6 *ngIf="custoKmGasolina">Com Gasolina vc vai gastar R$ {{custoKmGasolina.toFixed(4)}} por KM</h6>
+      <h6 *ngIf="custoKmAlcool">Com Alcool vc vai gastar R$ {{custoKmAlcool.toFixed(4)}} por KM</h6>
+      <h6 *ngIf="resultado70">Custo do Alcool recomendado para Abastecer é de até $ {{resultado70.toFixed(2) - 0.01}}</h6>
+      <h6>{{opt}}</h6>
+    </ion-card>
+  </div>
+
+
+
 </ion-content>

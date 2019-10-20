@@ -1,1 +1,98 @@
+h2{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
+ion-row{
+  margin: 2px 20% 2px 20%;
+}
+
+div#cardGas{
+  width: 100%;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+ion-card.cardG{
+  margin: 5px;
+  background-color: transparent;
+  padding: 3px;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  line-height: 5em;
+  box-shadow: none;
+  text-shadow: none;
+}
+
+div.divImg{
+  margin: 0 auto;
+  text-align: start;
+  padding-right: 0.4em;
+}
+
+img{
+  width: 20px;
+}
+
+input {
+  margin: 0 auto;
+  text-align: center;
+  width: content-box;
+  font-size: xx-small;
+}
+
+ion-card#cardMelhorOpt{
+  width: 100%;
+  margin-left: 5px;
+  right: 5px;
+  min-height: 150px;
+  padding: 10px;
+  background-color: #10abff;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.font{
+  font-family: 'PressStart2P', cursive !important;
+}
+
+h5, h6{
+  color: #ffffff;
+}
+h6{
+  font-size: xx-small;
+}
+
+.botoes {
+  margin: 0 auto;
+  text-align: center;
+}
+
+#botaoCalcular {
+  margin: 1em;
+}
+
+.divInput {
+  input {
+    line-height: 2em;
+  }
+}
+
+#botaoAddCarro {
+  font-family: 'kongtext', cursive;
+}
+
+#selectCar {
+  width: auto;
+  margin: 1em;
+  border: 3px solid #f7d51d;
+  background-color: white;
+}

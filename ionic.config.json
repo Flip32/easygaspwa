@@ -1,5 +1,7 @@
 {
   "name": "easygas",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

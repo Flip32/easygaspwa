@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title style="font-family: 'PressStart2P', cursive; font-size: medium; color: #8a4182" class="ion-text-center">
+      Adicionar Carro
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<!--===================================================-->
+<!--===================================================-->
+
+<ion-content>
+  <ion-item class="ion-padding-top" lines="none">
+    <ion-label position="fixed" class="font">Nome</ion-label>
+    <ion-input [(ngModel)]="newCar.carName"
+    class="nes-input is-primary"></ion-input>
+  </ion-item>
+
+  <ion-item class="itens" lines="none">
+    <ion-label position="fixed" class="font">Gasolina</ion-label>
+    <ion-input type="number" class="nes-input is-primary" [(ngModel)]="newCar.gasolina"></ion-input>
+  </ion-item>
+
+  <ion-item class="itens" lines="none">
+    <ion-label position="fixed" class="font">Alcool</ion-label>
+    <ion-input type="number" class="nes-input is-primary" [(ngModel)]="newCar.alcool"></ion-input>
+  </ion-item>
+
+  <div class="ion-text-center ion-padding font" >
+    <button id="botaoAddItem" class="nes-btn is-success"  (click)="addCar()">Add Car!</button>
+  </div>
+
+  <ion-list>
+
+    <ion-list-header>
+      <ion-label class="font" style="font-weight: bolder">Meus Carros</ion-label>
+    </ion-list-header>
+
+    <ion-item *ngFor="let car of cars">
+
+      <div>
+        <ion-label text-wrap>
+          <h3 class="ion-padding-top ion-padding-bottom font" style="color: #000000;">{{ car.carName }}</h3>
+          <input *ngIf="editar" [(ngModel)]="car.carName">
+          <ion-text color="secondary" class="font">
+            <p >Gasolina: {{ car.gasolina }} Km/L</p>
+            <input *ngIf="editar" [(ngModel)]="car.gasolina">
+          </ion-text>
+          <ion-text color="secondary" class="font">
+            <p>Alcool: {{ car.alcool }} Km/L</p>
+            <input *ngIf="editar" [(ngModel)]="car.alcool">
+          </ion-text>
+          <p class="font">Atualizado: {{ car.modified | date:'short'}}</p>
+        </ion-label>
+      <div class="ion-text-center ion-padding">
+        <button class="nes-btn is-primary font ion-margin-end"  (click)="editarFunction()">Editar</button>
+        <button class="nes-btn is-warning font ion-margin-end"  (click)="editCar(car)">Update</button>
+        <button class="nes-btn is-error font"  (click)="deleteCar(car)">Delete</button>
+      </div>
+      </div>
+
+    </ion-item>
+
+  </ion-list>
+
+</ion-content>
